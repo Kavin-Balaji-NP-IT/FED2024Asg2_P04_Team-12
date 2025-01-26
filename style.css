@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    background: #fff;
+    background: linear-gradient(135deg, violett);
     width: 400px;
     padding: 20px;
     border-radius: 10px;
