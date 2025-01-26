@@ -5,11 +5,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(purple);
+    background: grey;
 }
 
 .container {
-    background: linear-gradient(169deg, purple 0%, grey 50%);
+    background: purple;
     width: 400px;
     padding: 20px;
     border-radius: 10px;
@@ -23,7 +23,7 @@ body {
 
 .logo {
     font-size: 1.5rem;
-    color: #e63946;
+    color: purple;
     margin-bottom: 20px;
 }
 
@@ -35,7 +35,7 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #e63946;
+    border: 2px solid grey;
     margin-bottom: 20px;
 }
 
