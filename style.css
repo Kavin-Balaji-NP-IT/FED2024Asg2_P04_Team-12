@@ -18,8 +18,8 @@ body {
 }
 
 .container img {
-    width: 64px !important;
-    height: 64px !important;
+    width: 100px !important;
+    height: 100px !important;
 }
 
 .logo {
