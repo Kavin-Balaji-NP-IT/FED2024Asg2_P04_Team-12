@@ -103,7 +103,7 @@ body {
     z-index: 0;
 
 }
-.btn::after {
+.login-btn::after {
         content: "";
         z-index: -1;
         position: absolute;
@@ -116,7 +116,7 @@ body {
       }
 /* glow */
 
-.btn::before {
+.login-btn::before {
         content: "";
         background: linear-gradient(
           45deg,
@@ -143,24 +143,20 @@ body {
       }
       
       /* hover */
-      .btn:hover::before {
+      .login-btn:hover::before {
         opacity: 1;
       }
       
-      .btn:active:after {
+      .login-btn:active:after {
         background: transparent;
       }
       
-      .btn:active {
+      .login-btn:active {
         color: #000;
         font-weight: bold;
       }
-}
 
-.login-btn:hover {
-    background: cornflowerblue;
-}
-
+/* Container for the Moksell website */
 @media (max-width: 480px) {
     .container {
         width: 90%;
