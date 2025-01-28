@@ -69,9 +69,11 @@ body {
 }
 
 .create-account a {
-    color: #e63946;
-    text-decoration: none;
+    color: bisque;
+    text-decoration:#007991;
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 .create-account a:hover {
     text-decoration: underline;
