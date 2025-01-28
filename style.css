@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    background : radial-gradient( circle at center,  #007991 , #78ffd6 1px);
+    background : linear-gradient(#007991 , #78ffd6 );
     width: 400px;
     padding: 20px;
     border-radius: 10px;
