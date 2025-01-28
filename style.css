@@ -152,7 +152,7 @@ body {
       }
       
       .login-btn:active {
-        color: #000;
+        color: whitesmoke;
         font-weight: bold;
       }
 
