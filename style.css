@@ -175,3 +175,9 @@ body {
 {
     margin-top:auto;
 }
+
+@media (max-width: 100px) {
+    .container {
+        width: 60%;
+    }
+}
