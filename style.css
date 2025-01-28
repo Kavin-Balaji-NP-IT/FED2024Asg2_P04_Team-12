@@ -5,11 +5,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: grey;
+    background: whitesmoke;
 }
 
 .container {
-    background: purple;
+    background : radial-gradient( circle at center,  #007991 , #78ffd6 1px);
     width: 400px;
     padding: 20px;
     border-radius: 10px;
