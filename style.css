@@ -55,15 +55,7 @@ body {
     border-radius: 5px;
     outline: none;
 }
- #reveal:before {
-    content: "";
-    background: radial-gradient( circle at center,  #78ffd6 1px);
-    width:18px;
-    height:18px;
-    border-radius:0 100%;
-    transform: rotate(-45deg) skew(-10deg, -10deg);
-    left
-    }
+
 
 
 .input-field input:focus {
