@@ -170,3 +170,8 @@ body {
 body {
  background: linear-gradient(#007991 , #78ffd6 );
 }
+
+.logo 
+{
+    margin-top:auto;
+}
