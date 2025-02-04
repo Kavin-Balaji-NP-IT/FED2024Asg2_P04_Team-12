@@ -4,15 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#007991 , #78ffd6 );
+}
+
+.container {
+    background : linear-gradient(#007991 , #78ffd6 );
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(37, 31, 31, 0.1);
+    text-align: center;
+}
+
+.container img {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+.logo {
+    font-size: 2.0rem;
+    color: pink;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: whitesmoke;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid grey;
+    margin-bottom: 20px;
+}
+
+.avatar i {
+    font-size: 30px;
+    color: #333;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-field input:focus {
+    border-color: #e63946;
+}
+
+.create-account {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.create-account a {
+    color: bisque;
+    text-decoration:#007991;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-login img {
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.login-btn {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px 15px;
+    background: bisque;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    color: blueviolet;
+    position: relative;
+    z-index: 0;
+
+}
+.login-btn::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: beige;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+      }
+/* glow */
+
+.login-btn::before {
+        content: "";
+        background: linear-gradient(
+          45deg,
+          grey,beige,whitesmoke
+        );
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 600%;
+        z-index: -1;
+        width: calc(100% + 4px);
+        height:  calc(100% + 4px);
+        filter: blur(8px);
+        animation: glowing 20s linear infinite;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+        opacity: 0;
+      }
+      
+      @keyframes glowing {
+        0% {background-position: 0 0;}
+        50% {background-position: 400% 0;}
+        100% {background-position: 0 0;}
+      }
+      
+      /* hover */
+      .login-btn:hover::before {
+        opacity: 1;
+      }
+      
+      .login-btn:active:after {
+        background: transparent;
+      }
+      
+      .login-btn:active {
+        color: whitesmoke;
+        font-weight: bold;
+      }
+
+/* Container for the Moksell website */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+}
+
+
+/* CSS - Homepage for Mocksell html */
+body {
+ background: linear-gradient(#007991 , #78ffd6 );
+}
+
+.logo 
+{
+    margin-top:auto;
+}
+
+@media (max-width: 100px) {
+    .container {
+        width: 60%;
+    }
+}
+</style>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="Images/original.png">
+            <img src="Logo.png">
         </div>
         <div class="avatar">
-            <img src="Images/icons8-avatar.gif">
+            <img src="icons8-account-64.png">
         </div>
         <div class="input-field">
             <input type="text" placeholder="Username">
@@ -21,10 +203,10 @@
             <input type="password" placeholder="Password">
         </div>
         <div class="create-account">
-            Create an Account? <a href="#">Click Here!</a>
+            Create an Account? <a href="#" id="signin">Click Here!</a>
         </div>
         <div class="social-login">
-            <img src="Images/icons8-chrome.gif" alt="Google">
+            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
             <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
         </div>
         <button class="login-btn">Login</button>
@@ -61,7 +243,7 @@
             .then((userCredential) => {
               const user = userCredential.user;
               console.log('Logged in as: ', user.email);
-              window.location.href = '/dashboard.html';
+              window.location.href = '/Menu.html'; // Redirect to Menu.html on successful login
             })
             .catch((error) => {
               console.error("Error signing in:", error.message);
@@ -77,7 +259,7 @@
             .then((result) => {
               const user = result.user;
               console.log('Logged in with Google: ', user.email);
-              window.location.href = '/dashboard.html';
+              window.location.href = '/Menu.html'; // Redirect to Menu.html on Google login success
             })
             .catch((error) => {
               console.error("Error with Google login:", error.message);
@@ -85,8 +267,11 @@
             });
         });
       </script>
-      
-
+      <script>
+          document.getElementById('signin').addEventListener('click', function() {
+            window.location.href = 'Sign-up.html';  // Redirect to Login page
+        });
+      </script>
 </body>
 </html>
 
