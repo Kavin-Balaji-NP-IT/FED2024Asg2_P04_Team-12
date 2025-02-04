@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 100%;
+            background: white;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .sidebar img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        .sidebar button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            background: lightgray;
+            cursor: pointer;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group textarea, .form-group button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .upload-box {
+            width: 100%;
+            height: 150px;
+            background: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .back-menu {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 95%;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                text-align: left;
+            }
+
+            .sidebar img {
+                width: 60px;
+            }
+
+            .main-content {
+                margin: 10px;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 14px;
+            }
+
+            .upload-box {
+                height: 120px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .sidebar {
+                padding: 10px;
+            }
+
+            .sidebar button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .main-content {
+                padding: 10px;
+                margin: 5px;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .upload-box {
+                height: 100px;
+            }
+
+            .back-menu {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="logo.png" alt="MOKESELL">
+        <p><strong>What Would You Like to Sell?</strong></p>
+        <button>Review Product</button>
+        <button>Publish Product</button>
+    </div>
+    <div class="main-content">
+        <a href="#" class="back-menu" id="goback">Go Back to Menu</a>
+        <h2>Upload Product</h2>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+            <label>Highest Price ($)</label>
+            <input type="number" placeholder="Enter highest price">
+        </div>
+        <div class="form-group">
+            <label>Lowest Price ($)</label>
+            <input type="number" placeholder="Enter lowest price">
+        </div>
+        <div class="form-group">
+            <label>Product Type and Category</label>
+            <input type="text" placeholder="Enter category">
+        </div>
+        <div class="form-group">
+            <label>Description of Product</label>
+            <textarea placeholder="Enter description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Upload Product Image</label>
+            <div class="upload-box">+</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('goback').addEventListener('click', function() {
+            window.location.href = 'Menu.html';  // Redirect to Login page
+        });
+    </script>
+</body>
+</html>

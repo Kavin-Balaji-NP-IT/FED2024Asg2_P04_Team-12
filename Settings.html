@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MokeSell Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Allow the sidebar and content to stack on smaller screens */
+        }
+        .sidebar {
+            width: 250px;
+            background: #ddd;
+            padding: 20px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .sidebar img {
+            width: 80px;
+            border-radius: 50%;
+        }
+        .sidebar p {
+            margin: 5px 0;
+        }
+        .settings button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+        .logout {
+            background: #00bfff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .main-content img {
+            max-width: 100%; /* Ensure the image is responsive */
+            height: auto;
+            border-radius: 10px;
+        }
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media query for phone view */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack the sidebar and content on small screens */
+            }
+            .sidebar {
+                width: 105%;
+                padding: 15px;
+                min-height: auto;
+            }
+            .main-content {
+                width: 105%;
+                padding: 10px;
+                height: auto;
+            }
+            .footer {
+                position: static; /* Make the footer normal when not in a fixed position */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="logo.png" alt="User Avatar">
+            <p><strong>Username:</strong></p>
+            <p><strong>Name:</strong></p>
+            <p><strong>Email:</strong></p>
+            <p><strong>Contact No:</strong></p>
+            <div class="settings">
+                <button>Privacy</button>
+                <button>Notifications</button>
+                <button>Help and Support</button>
+                <button>Appearance</button>
+                <button>User Admin Control</button>
+                <button class="Exit" id="Exit">Exit</button>
+            </div>
+            <button class="logout" id="logout">Log out</button>
+        </div>
+        <div class="main-content">
+            <img src="Screenshot 2025-01-30 173526.png" alt="MokeSell Screen">
+        </div>
+    </div>
+    <div class="footer">
+        <p>Give your Alliance to Convenience | Terms & Condition Apply | Powered By US! | MokeSell</p>
+    </div>
+    <script>
+        document.getElementById('logout').addEventListener('click', function() {
+            window.location.href = 'SLpage.html';  // Redirect to Login page
+        });
+    </script>
+    <script>
+        document.getElementById('Exit').addEventListener('click', function() {
+            window.location.href = 'Menu.html';  // Redirect to Menu page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            padding-top: 20px;
+        }
+        .product-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .product-image img {
+            max-width: 90%;
+            border-radius: 10px;
+        }
+        .price {
+            color: #e60000;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            gap: 10px; 
+        }
+        .button {
+            display: block;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart {
+            background: #ff6600;
+            color: #fff;
+        }
+        .add-to-cart:hover {
+            background: #e65c00;
+        }
+        .message-seller {
+            background: #28a745;
+            color: #fff;
+        }
+        .message-seller:hover {
+            background: #218838;
+        }
+        .product-logo img {
+            max-width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse;
+            gap: 5px;
+            margin: 15px 0;
+        }
+        .rating-stars input {
+            display: none;
+        }
+        .rating-stars label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label,
+        .rating-stars input:checked ~ label {
+            color: #FFD700;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+        .close:hover {
+            color: black;
+        }
+        #review-text {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .button.submit-review {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button.submit-review:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <button class="button menu-option" id="menu">Go Back to Menu</button>
+        <div class="product-image">
+            <img src="https://zerge.hu/storage/_cache/garmin-fenix-7-sapphire-solar-carbon-010-02540-21-masolat_0cd83f8a91a7a4dd70a720d9a53a8616.png" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1>Stylish Smartwatch</h1>
+            <p class="price">$299.99</p>
+            <p class="description">This stylish smartwatch features a sleek design, advanced health tracking, and seamless connectivity with your smartphone.</p>
+            <div class="button-container">
+                <button class="button add-to-cart">Add to Cart</button>
+                <button class="button message-seller">Message Seller</button>
+                <button class="button" id="rate-product">Rate Product</button>
+                <div class="product-logo">
+                    <img src="Logo.png" alt="Product Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="rating-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h3>Rate and Review the Product</h3>
+            <div class="rating-stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+            <textarea id="review-text" placeholder="Write your review here..."></textarea>
+            <button class="button submit-review" id="submit-review">Submit Review</button>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById('rating-modal');
+        const rateButton = document.getElementById('rate-product');
+        const closeModal = document.getElementById('close-modal');
+        const submitReview = document.getElementById('submit-review');
+
+        rateButton.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        submitReview.onclick = function() {
+            const selectedRating = document.querySelector('input[name="rating"]:checked');
+            const reviewText = document.getElementById('review-text').value;
+            if (selectedRating && reviewText.trim() !== "") {
+                alert(`You rated the product ${selectedRating.value} out of 5 stars! \nReview: ${reviewText}`);
+                modal.style.display = "none";
+            } else {
+                alert("Please select a rating and write a review.");
+            }
+        }
+
+        document.getElementById('menu').addEventListener('click', function() {
+            window.location.href = 'Menu.html';
+        });
+    </script>
+</body>
+</html>
