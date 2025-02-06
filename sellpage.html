@@ -5,47 +5,253 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Upload</title>
     <link href="css/sellpage.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 100%;
+            background: white;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .sidebar img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        .sidebar button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            background: lightgray;
+            cursor: pointer;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group textarea, .form-group button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .upload-box {
+            width: 100%;
+            height: 150px;
+            background: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .back-menu {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 95%;
+        }
 
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                text-align: left;
+            }
+
+            .sidebar img {
+                width: 60px;
+            }
+
+            .main-content {
+                margin: 10px;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 14px;
+            }
+
+            .upload-box {
+                height: 120px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .sidebar {
+                padding: 10px;
+            }
+
+            .sidebar button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .main-content {
+                padding: 10px;
+                margin: 5px;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .upload-box {
+                height: 100px;
+            }
+
+            .back-menu {
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
-        <img src="Images/Logo.png" alt="MOKESELL">
-        <p><strong>What Would You Like to Sell?</strong></p>
-        <button>Review Product</button>
-        <button>Publish Product</button>
+        <img src="Images/logo.png" alt="MOKESELL">
+        <p><strong>What Would You Like to Do?</strong></p>
+        <button id="reviewBtn">Review Product</button>
     </div>
-    <div class="main-content">
-        <a href="#" class="back-menu" id="goback">Go Back to Menu</a>
-        <h2>Upload Product</h2>
-        <div class="form-group">
-            <label>Product Name</label>
-            <input type="text" placeholder="Enter product name">
-        </div>
-        <div class="form-group">
-            <label>Highest Price ($)</label>
-            <input type="number" placeholder="Enter highest price">
-        </div>
-        <div class="form-group">
-            <label>Lowest Price ($)</label>
-            <input type="number" placeholder="Enter lowest price">
-        </div>
-        <div class="form-group">
-            <label>Product Type and Category</label>
-            <input type="text" placeholder="Enter category">
-        </div>
-        <div class="form-group">
-            <label>Description of Product</label>
-            <textarea placeholder="Enter description"></textarea>
-        </div>
-        <div class="form-group">
-            <label>Upload Product Image</label>
-            <div class="upload-box">+</div>
-        </div>
+    <div class="main-content" id="main-content">
+        <!-- This is where the form or review will appear -->
     </div>
+
     <script>
-        document.getElementById('goback').addEventListener('click', function() {
-            window.location.href = 'Menu.html';  // Redirect to Login page
+        document.getElementById('reviewBtn').addEventListener('click', function() {
+            showReviewForm();
         });
+
+        function showReviewForm() {
+            const products = JSON.parse(localStorage.getItem('products')) || [];
+            const product = products[products.length - 1]; // Get the last added product
+            if (product) {
+                document.getElementById('main-content').innerHTML = `
+                    <h2>Review Product</h2>
+                    <div class="form-group">
+                        <label>Product Name: </label><span>${product.name}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Highest Price: </label><span>$${product.highestPrice}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Lowest Price: </label><span>$${product.lowestPrice}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Category: </label><span>${product.category}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Description: </label><span>${product.description}</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Image: </label><br>
+                        <img src="${product.image}" alt="Product Image" style="max-width: 300px; max-height: 300px;">
+                    </div>
+                    <button id="confirmPublishBtn">Publish Product</button>
+                    <button id="editProductBtn">Edit Product</button>
+                `;
+
+                document.getElementById('confirmPublishBtn').addEventListener('click', function() {
+                    alert('Product Published!');
+                    window.location.href = 'Menu.html';
+                });
+
+                document.getElementById('editProductBtn').addEventListener('click', function() {
+                    showUploadForm();
+                });
+            } else {
+                alert('No product found. Please upload a product first.');
+            }
+        }
+
+        function showUploadForm() {
+            document.getElementById('main-content').innerHTML = `
+                <h2>Upload Product</h2>
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="productName" placeholder="Enter product name">
+                </div>
+                <div class="form-group">
+                    <label>Highest Price ($)</label>
+                    <input type="number" id="highestPrice" placeholder="Enter highest price">
+                </div>
+                <div class="form-group">
+                    <label>Lowest Price ($)</label>
+                    <input type="number" id="lowestPrice" placeholder="Enter lowest price">
+                </div>
+                <div class="form-group">
+                    <label>Product Type and Category</label>
+                    <input type="text" id="productCategory" placeholder="Enter category">
+                </div>
+                <div class="form-group">
+                    <label>Description of Product</label>
+                    <textarea id="productDescription" placeholder="Enter description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Product Image</label>
+                    <input type="file" id="productImage">
+                </div>
+                <button id="submitProductBtn">Submit Product</button>
+            `;
+
+            document.getElementById('submitProductBtn').addEventListener('click', function() {
+                const productName = document.getElementById('productName').value;
+                const highestPrice = document.getElementById('highestPrice').value;
+                const lowestPrice = document.getElementById('lowestPrice').value;
+                const productCategory = document.getElementById('productCategory').value;
+                const productDescription = document.getElementById('productDescription').value;
+                const productImage = document.getElementById('productImage').files[0];
+
+                if (!productName || !highestPrice || !lowestPrice || !productCategory || !productDescription || !productImage) {
+                    alert('Please fill in all fields and upload an image.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    const product = {
+                        name: productName,
+                        highestPrice: highestPrice,
+                        lowestPrice: lowestPrice,
+                        category: productCategory,
+                        description: productDescription,
+                        image: reader.result
+                    };
+
+                    let products = JSON.parse(localStorage.getItem('products')) || [];
+                    products.push(product);
+                    localStorage.setItem('products', JSON.stringify(products));
+
+                    alert('Product uploaded successfully!');
+                    window.location.href = 'Menu.html';
+                };
+                reader.readAsDataURL(productImage);
+            });
+        }
+
+        // Initially show the product upload form
+        showUploadForm();
     </script>
 </body>
 </html>
