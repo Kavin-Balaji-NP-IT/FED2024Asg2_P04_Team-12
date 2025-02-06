@@ -1,353 +1,180 @@
-
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(#007991 , #78ffd6 );
+  font-family: Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo img {
+  width: 200px;
 }
 
 .container {
-    background : linear-gradient(#007991 , #78ffd6 );
-    width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(37, 31, 31, 0.1);
-    text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid black;
 }
 
-.container img {
-    width: 100px !important;
-    height: 100px !important;
+.store-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  width: 100%;
 }
 
-.logo {
-    font-size: 1.5rem;
-    color: pink;
-    margin-bottom: 20px;
+.store-logos img {
+  width: 80px;
+  height: auto;
 }
 
-.avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: whitesmoke;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid grey;
-    margin-bottom: 20px;
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
-.avatar i {
-    font-size: 40px;
-    color: #333;
+p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
 }
 
-.input-field {
-    margin-bottom: 15px;
+.button {
+  display: inline-block;
+  background-color: lightgray;
+  color: black;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
-.input-field input {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
+.image-section {
+  background: linear-gradient(#007991, #78ffd6);
+  padding: 50px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
 }
 
-
-
-.input-field input:focus {
-    border-color: #e63946;
+.footer {
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.create-account {
-    margin: 10px 0;
-    font-size: 0.9rem;
-}
-
-.create-account a {
-    color: bisque;
-    text-decoration:#007991;
-}
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-.create-account a:hover {
-    text-decoration: underline;
-}
-
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.social-login img {
-    width: 10px;
-    cursor: pointer;
-}
-
-.login-btn {
-    padding: 10px 15px;
-    background: bisque;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    outline: none;
-    color-scheme: teal;
-    position: relative;
-    z-index: 0;
-
-}
-.login-btn::after {
-        content: "";
-        z-index: -1;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: beige;
-        left: 0;
-        top: 0;
-        border-radius: 10px;
-      }
-/* glow */
-
-.login-btn::before {
-        content: "";
-        background: linear-gradient(
-          45deg,
-          grey,beige,whitesmoke
-        );
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        background-size: 600%;
-        z-index: -1;
-        width: calc(100% + 4px);
-        height:  calc(100% + 4px);
-        filter: blur(8px);
-        animation: glowing 20s linear infinite;
-        transition: opacity .3s ease-in-out;
-        border-radius: 10px;
-        opacity: 0;
-      }
-      
-      @keyframes glowing {
-        0% {background-position: 0 0;}
-        50% {background-position: 400% 0;}
-        100% {background-position: 0 0;}
-      }
-      
-      /* hover */
-      .login-btn:hover::before {
-        opacity: 1;
-      }
-      
-      .login-btn:active:after {
-        background: transparent;
-      }
-      
-      .login-btn:active {
-        color: whitesmoke;
-        font-weight: bold;
-      }
-
-/* Container for the Moksell website */
-@media (max-width: 480px) {
-    .container {
-        width: 90%;
-    }
-}
-
-
-/* CSS - Homepage for Mocksell html */
-body {
- background: linear-gradient(#007991 , #78ffd6 );
-}
-
-.logo 
-{
-    margin-top:auto;
-}
-
-@media (max-width: 100px) {
-    .container {
-        width: 60%;
-    }
-}
-/* 3dwhopage html css */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+/* 🎯 Mobile Full View Fix */
+@media only screen and (max-width: 768px) {
   body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(#007991, #78ffd6);
-    text-align: center;
-    font-family: "Euclid Circular A", "Poppins";
+      height: 100vh;
+      width: 100vw;
   }
-  
-  .accordion {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 400px;
-    gap: 16px;
-    transition: 0.3s;
-  }
-  
-  .accordion:hover {
-    gap: 0;
-  }
-  
-  .accordion li {
-    position: relative;
-    overflow: hidden;
-    flex: 0 0 80px;
-    border-radius: 50px;
-    opacity: 0.75;
-    cursor: pointer;
-  }
-  
-  .accordion li img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(0.5);
-  }
-  
-  .accordion li,
-  .accordion li img,
-  .accordion li .content,
-  .accordion li .content span {
-    transition: 0.3s;
-  }
-  
-  .accordion h2 {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 45px;
-    border-bottom: 2px solid #fff;
-    margin-bottom: 10px;
-    white-space: nowrap;
-  }
-  
-  .accordion li .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    color: #fff;
-    padding: 15px;
-    background: #02022e;
-    background: linear-gradient(
-      0deg,
-      rgb(0 0 0 / 70%) 10%,
-      rgb(255 255 255 / 0%) 100%
-    );
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  .accordion li .content span {
-    position: absolute;
-    z-index: 3;
-    left: 50%;
-    bottom: 50px;
-    translate: -50%;
-    scale: 0.85;
-    visibility: hidden;
-    opacity: 0;
-  }
-  
-  .accordion li:hover {
-    flex: 0 1 260px;
-    scale: 1.1;
-    z-index: 10;
-    opacity: 1;
-  }
-  
-  .accordion li:hover .content {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .accordion li:hover span {
-    scale: 1;
-    opacity: 1;
-    visibility: visible;
-  }
-  
 
-/* CSS - Homepage for Mocksell html {NEW AS OF 29 JAN 2025, 1743.} */
-.wrapper {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+  .video-background {
+      width: 100vw;
+      height: 100vh;
   }
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: hsl(283, 100%, 13%);
-    padding: 1rem 1.5rem;
-    border-radius: 0.4rem;
+
+  .logo img {
+      width: 180px;
   }
-  nav .logo {
-    font-weight: 700;
+
+  .container {
+      width: 85%;
+      padding: 20px;
+      margin-top: 10px;
   }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+
+  .store-logos img {
+      width: 70px;
   }
-  nav a {
-    text-decoration: none;
-    color: white;
+
+  h1 {
+      font-size: 24px;
   }
-  nav #toggle,
-  nav label {
-    display: none;
+
+  p {
+      font-size: 16px;
   }
-  
-  @media (max-width: 40.625em) {
-    nav .menu {
-      width: 100%;
-      height: 0;
-      overflow: hidden;
-    }
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-      padding: 0.5rem 0;
-    }
-    nav label {
-      display: inline-flex;
-      color: white;
-      cursor: pointer;
-    }
-    nav #toggle:checked ~ .menu {
-      height: 100%;
-    }
+
+  .button {
+      font-size: 16px;
+      padding: 10px 20px;
   }
+
+  .image-section {
+      padding: 40px;
+      font-size: 18px;
+  }
+
+  .footer {
+      font-size: 14px;
+  }
+}
+
+/* Extra small screens (mobile portrait) */
+@media only screen and (max-width: 480px) {
+  h1 {
+      font-size: 22px;
+  }
+
+  .button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  .footer {
+      font-size: 12px;
+  }
+
+  .logo img {
+      width: 150px;
+  }
+
+  .container {
+      padding: 15px;
+  }
+
+  .store-logos img {
+      width: 60px;
+  }
+
+  .image-section {
+      padding: 30px;
+      font-size: 16px;
+  }
+}
