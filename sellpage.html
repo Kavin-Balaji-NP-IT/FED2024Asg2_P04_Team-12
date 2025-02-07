@@ -8,13 +8,25 @@
     
 </head>
 <body>
+
     <div class="sidebar">
         <img src="Images/logo.png" alt="MOKESELL">
         <p><strong>What Would You Like to Do?</strong></p>
         <button id="reviewBtn">Review Product</button>
+        <button id="exitBtn">Exit Options</button> <!-- New Exit Button -->
     </div>
+
     <div class="main-content" id="main-content">
         <!-- This is where the form or review will appear -->
+    </div>
+
+    <!-- Exit Modal -->
+    <div id="exitModal" class="modal">
+        <div class="modal-content">
+            <h3>Are you sure you want to exit?</h3>
+            <button id="confirmExitBtn" class="exit-btn">Yes, Exit</button>
+            <button id="cancelExitBtn" class="cancel-btn">Cancel</button>
+        </div>
     </div>
 
     <script>
@@ -22,9 +34,24 @@
             showReviewForm();
         });
 
+        // Exit button event listener
+        document.getElementById('exitBtn').addEventListener('click', function() {
+            document.getElementById('exitModal').style.display = "flex"; // Show modal
+        });
+
+        // Confirm exit
+        document.getElementById('confirmExitBtn').addEventListener('click', function() {
+            window.location.href = 'Menu.html'; // Redirect to menu
+        });
+
+        // Cancel exit
+        document.getElementById('cancelExitBtn').addEventListener('click', function() {
+            document.getElementById('exitModal').style.display = "none"; // Hide modal
+        });
+
         function showReviewForm() {
             const products = JSON.parse(localStorage.getItem('products')) || [];
-            const product = products[products.length - 1]; // Get the last added product
+            const product = products[products.length - 1];
             if (product) {
                 document.getElementById('main-content').innerHTML = `
                     <h2>Review Product</h2>
