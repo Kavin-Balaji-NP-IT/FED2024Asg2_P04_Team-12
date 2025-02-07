@@ -10,32 +10,32 @@
     <!-- 🎯 Navbar -->
     <nav>
         <ul>
-        <li><a href="#">Mocksell</a></li>
-        <li>
-            <a href="#">Catergories ▾</a>
-            <ul class="dropdown">
-                <li><a href="#">Men's Fashion</a></li>
-                <li><a href="#">Women's Fashion</a></li>
-                <li><a href="#">Toys</a></li>
-                <li><a href="#">Electronics & Home Appliances</a></li>
-                <li><a href="#">Cosmetics</a></li>
-                <li><a href="#">Furniture</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Luxury</a></li>
-                <li><a href="#">Apparel</a></li>
-                <li><a href="#">Everything Else</a></li>
-            </ul>
-        </li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Sell Items</a></li>
+            <li><a href="#" id="home">Mocksell</a></li>
+            <li>
+                <a href="#">Categories ▾</a>
+                <ul class="dropdown">
+                    <li><a href="#">Men's Fashion</a></li>
+                    <li><a href="#">Women's Fashion</a></li>
+                    <li><a href="#">Toys</a></li>
+                    <li><a href="#">Electronics & Home Appliances</a></li>
+                    <li><a href="#">Cosmetics</a></li>
+                    <li><a href="#">Furniture</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Luxury</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Everything Else</a></li>
+                </ul>
+            </li>
+            <li><a href="#" id="About">About Us</a></li>
+            <li><a href="#" id="sell">Sell Items</a></li>
+            <li><a href="#" id="Settings">Settings</a></li>
         </ul>
     </nav>
 
-        <!-- 🎯 Search Bar -->
-        <div class="search-container">
-            <img src="Images/pngtree-vector-search-icon-png-image_320926-removebg-preview.png" alt="Search" class="search-icon">
-            <input type="text" id="search-bar" placeholder="Search for items..." oninput="filterProducts()">
-        </div>
+    <!-- 🎯 Search Bar -->
+    <div class="search-container">
+        <img src="Images/pngtree-vector-search-icon-png-image_320926-removebg-preview.png" alt="Search" class="search-icon">
+        <input type="text" id="search-bar" placeholder="Search for items..." oninput="filterProducts()">
     </div>
 
     <!-- 🎯 Shop Logo -->
@@ -65,20 +65,20 @@
         </div>
         <div class="product-card" id="product4">
             <img src="Images/Airpods-removebg-preview.png" alt="Product 4">
-            <h3>Airpods </h3>
+            <h3>Airpods</h3>
             <h4>Official Airpods from Apple!</h4>
             <p>$299.99</p>
         </div>
         <div class="product-card" id="product5">
             <img src="Images/shirt 2.jpg" alt="Product 5">
             <h3>Printed Half Shirt</h3>
-            <h4>The p</h4>
+            <h4>The perfect summer outfit!</h4>
             <p>$60.00</p>
         </div>
     </div>
 
     <script>
-        // Redirecting to the homepage or sell page when clicked
+        // Redirecting to different pages
         document.getElementById('home').addEventListener('click', function() {
             window.location.href = 'index.html';  // Redirect to Homepage
         });
@@ -87,56 +87,25 @@
             window.location.href = 'sellpage.html';  // Redirect to Sell page
         });
 
-        document.getElementById('').addEventListener('click', function() {
-            window.location.href = 'Productpage.html';  // Redirect to Sell page
-        });
-
-        
         document.getElementById('About').addEventListener('click', function() {
-            window.location.href = '3dwhopage.html';  // Redirect to Login page
+            window.location.href = '3dwhopage.html';  // Redirect to About page
         });
 
+        document.getElementById('Settings').addEventListener('click', function() {
+            window.location.href = 'Settings.html';  // Redirect to Settings page
+        });
 
+        // Function to filter products based on search input
         function filterProducts() {
-    const searchQuery = document.getElementById('search-bar').value.toLowerCase();
-    const products = document.querySelectorAll('.product-card');
-
-    products.forEach(product => {
-        const productName = product.querySelector('h3').textContent.toLowerCase();
-
-        // Using a simple fuzzy search: check if the search query appears in any part of the product name
-        const matchScore = getMatchScore(searchQuery, productName);
-
-        if (matchScore > 0.5) {  // You can adjust the threshold as needed (0.5 means "half-matched")
-            product.style.display = 'block';  // Show product if it matches the search
-        } else {
-            product.style.display = 'none';  // Hide product if it doesn't match
-        }
-    });
-}
-
-     // Function to filter products based on search input
-     function filterProducts() {
             const searchQuery = document.getElementById('search-bar').value.toLowerCase();
             const products = document.querySelectorAll('.product-card');
 
             products.forEach(product => {
                 const productName = product.querySelector('h3').textContent.toLowerCase();
-                if (productName.includes(searchQuery)) {
-                    product.style.display = 'block';  // Show product if it matches the search
-                } else {
-                    product.style.display = 'none';  // Hide product if it doesn't match
-                }
+                product.style.display = productName.includes(searchQuery) ? 'block' : 'none';
             });
         }
     </script>
-</body>
-</html>
-<script>
-    document.getElementById('Settings').addEventListener('click', function() {
-        window.location.href = 'Settings.html';  // Redirect to Login page
-    });
-</script>
 </body>
 </html>
 
