@@ -15,81 +15,94 @@
             <img src="Images/icons8-account-64.png">
         </div>
         <div class="input-field">
-            <input type="text" placeholder="Username">
+            <input type="text" id="username" placeholder="Username">
         </div>
         <div class="input-field">
-            <input type="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Password">
         </div>
         <div class="create-account">
             Create an Account? <a href="#" id="signin">Click Here!</a>
         </div>
         <div class="social-login">
-            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
-            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+            <img id="google-login" src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+            <img id="facebook-login" src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
         </div>
         <button class="login-btn">Login</button>
     </div>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-      
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        // Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyCF_Oh_t8RrkmDTgDvVXnQF9wNsEgPXxfA",
-          authDomain: "fed2024asg2-p04-team12.firebaseapp.com",
-          projectId: "fed2024asg2-p04-team12",
-          storageBucket: "fed2024asg2-p04-team12.firebasestorage.app",
-          messagingSenderId: "89688961571",
-          appId: "1:89688961571:web:404266e7b3dbfa1a65b796",
-          measurementId: "G-Z14EVP36KP"
+            apiKey: "AIzaSyCF_Oh_t8RrkmDTgDvVXnQF9wNsEgPXxfA",
+            authDomain: "fed2024asg2-p04-team12.firebaseapp.com",
+            projectId: "fed2024asg2-p04-team12",
+            storageBucket: "fed2024asg2-p04-team12.firebasestorage.app",
+            messagingSenderId: "89688961571",
+            appId: "1:89688961571:web:404266e7b3dbfa1a65b796",
+            measurementId: "G-Z14EVP36KP"
         };
-      
+
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-      
         const auth = getAuth(app);
-      
-        const loginButton = document.querySelector('.login-btn');
-        const usernameInput = document.querySelector('input[type="text"]');
-        const passwordInput = document.querySelector('input[type="password"]');
-      
-        loginButton.addEventListener('click', () => {
-          const username = usernameInput.value;
-          const password = passwordInput.value;
-      
-          signInWithEmailAndPassword(auth, username, password)
-            .then((userCredential) => {
-              const user = userCredential.user;
-              console.log('Logged in as: ', user.email);
-              window.location.href = '/Menu.html'; // Redirect to Menu.html on successful login
-            })
-            .catch((error) => {
-              console.error("Error signing in:", error.message);
-              alert("Login failed: " + error.message);
-            });
+
+        // Email/Password Login
+        document.querySelector('.login-btn').addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, username, password)
+                .then((userCredential) => {
+                    console.log('Logged in as: ', userCredential.user.email);
+                    window.location.href = '/Menu.html'; 
+                })
+                .catch((error) => {
+                    console.error("Error signing in:", error.message);
+                    alert("Login failed: " + error.message);
+                });
         });
-      
-        const googleLoginButton = document.querySelector('.social-login img[alt="Google"]');
+
+        // Google Login
         const googleProvider = new GoogleAuthProvider();
-      
-        googleLoginButton.addEventListener('click', () => {
-          signInWithPopup(auth, googleProvider)
-            .then((result) => {
-              const user = result.user;
-              console.log('Logged in with Google: ', user.email);
-              window.location.href = '/Menu.html'; // Redirect to Menu.html on Google login success
-            })
-            .catch((error) => {
-              console.error("Error with Google login:", error.message);
-              alert("Google login failed: " + error.message);
-            });
+        document.getElementById('google-login').addEventListener('click', () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    console.log('Logged in with Google: ', result.user.email);
+                    window.location.href = '/Menu.html'; 
+                })
+                .catch((error) => {
+                    console.error("Google login error:", error.message);
+                    alert("Google login failed: " + error.message);
+                });
         });
-      </script>
-      <script>
-          document.getElementById('signin').addEventListener('click', function() {
-            window.location.href = 'Sign-up.html';  // Redirect to Login page
+     
+
+        // Facebook Login
+        const facebookProvider = new FacebookAuthProvider();
+        document.getElementById('facebook-login').addEventListener('click', () => {
+            signInWithPopup(auth, facebookProvider)
+                .then((result) => {
+                    console.log('Logged in with Facebook: ', result.user.email);
+                    window.location.href = '/Menu.html'; 
+                })
+                .catch((error) => {
+                    console.error("Facebook login error:", error.message);
+                    alert("Facebook login failed: " + error.message);
+                });
         });
-      </script>
+
+    </script>
+
+    <script>
+        document.getElementById('signin').addEventListener('click', function() {
+            window.location.href = 'Sign-up.html';  
+        });
+    </script>
 </body>
 </html>
 
