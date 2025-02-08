@@ -75,17 +75,17 @@ ul li:hover ul.dropdown {
     height: auto;
 }
 
-/* 🎯 Rounded Search Bar - Adjusted */
+/* 🎯 Rounded Search Bar */
 .search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 10px 0; /* Adjusted margin */
+    margin: 10px 0;
 }
 
 .search-container input {
-    width: 80%; /* Adjust width to fit screen */
+    width: 80%;
     max-width: 400px;
     padding: 10px 35px;
     border: 2px solid blue;
@@ -104,19 +104,12 @@ ul li:hover ul.dropdown {
     height: 18px;
 }
 
-/* Ensure proper stacking */
-.shop-image {
-    margin: 20px auto 10px;
-    text-align: center;
-}
-
 /* Center content */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 /* 🎯 Product Grid */
 .product-container {
@@ -159,42 +152,21 @@ ul li:hover ul.dropdown {
     font-weight: bold;
 }
 
-/* 🎯 Mobile Responsive Styling */
-@media (max-width: 600px) {
+/* 🎯 Mobile View */
+@media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    .search-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        margin: auto;
+    .navbar a {
+        padding: 10px;
+        width: 100%;
+        text-align: left;
     }
-    
 
     .search-container input {
-        outline: none;
-        border: 2px solid #ccc; /* Adjust as needed */
-        border-radius: 20px; /* Smooth rounded edges */
-        padding: 8px 12px;
         width: 90%;
-    }
-
-    .search-icon {
-        position: absolute;
-        left: 10px; /* Adjust placement */
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    
-
-
-
-    .shop-image img {
-        width: 70px;
     }
 
     .product-container {
@@ -203,34 +175,31 @@ ul li:hover ul.dropdown {
     }
 
     .product-card {
-        width: 90%;
-        max-width: 200px;
-    }
-
-    ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    ul li {
         width: 100%;
-        text-align: center;
+        max-width: 300px;
     }
 
-    ul li a {
-        padding: 10px 0;
-        font-size: 14px;
+    .shop-image img {
+        width: 60px;
     }
+}
 
-    ul li ul.dropdown {
-        position: static;
-        width: 100%;
-        text-align: center;
-    }
-
+@media (max-width: 480px) {
     .navbar a {
-        padding: 10px;
-        font-size: 14px;
+        padding: 8px;
+    }
+
+    .search-container input {
+        width: 95%;
+    }
+
+    .product-card {
+        width: 90%;
+        max-width: 250px;
+    }
+
+    .shop-image img {
+        width: 50px;
     }
 }
 
