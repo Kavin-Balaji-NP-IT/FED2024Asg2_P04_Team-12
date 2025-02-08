@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-    <link href="css/Signup.css" rel="stylesheet">
+
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,8 +69,8 @@
 <body>
     <div class="container">
         <div class="logo">MOKESELL</div>
-        <img id="avatarImg" class="avatar" src="images/default-avatar.png" alt="Avatar"> <!-- Default Avatar -->
-        <button id="uploadAvatar">Upload an Avatar</button>
+        <img id="avatarImg" class="avatar" src="default-avatar.png" alt="Avatar"> 
+        <input type="file" id="avatarUpload" accept="image/*"> 
         <button id="generateAI">Generate with M3.ai</button>
         <form id="signupForm">
             <input type="email" id="email" placeholder="Email" required>
@@ -88,6 +95,56 @@
             <button type="submit" id="signUp">Sign up</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const termsChecked = document.getElementById('terms').checked;
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/; 
+            
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+            
+            if (!usernameRegex.test(username)) {
+                alert("Username must be 3-16 characters long and contain only letters, numbers, underscores, or hyphens.");
+                return;
+            }
+
+            if (!termsChecked) {
+                alert("You must agree to the terms and conditions.");
+                return;
+            }
+
+            alert("Form submitted successfully!");
+        });
+
+        document.getElementById('avatarUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0]; 
+            if (file) {
+                const reader = new FileReader(); 
+                reader.onload = function(e) {
+                    document.getElementById('avatarImg').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+     
+    <script>
+        document.getElementById('signUp').addEventListener('click', function() {
+            window.location.href = 'menu.html';  
+        });
+    </script>
+</body>
+</html>
+
 
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(event) {
