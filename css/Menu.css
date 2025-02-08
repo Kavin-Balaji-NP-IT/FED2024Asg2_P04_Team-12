@@ -167,9 +167,31 @@ ul li:hover ul.dropdown {
     }
 
     .search-container {
-        width: 85%;
-        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        margin: auto;
     }
+    
+
+    .search-container input {
+        outline: none;
+        border: 2px solid #ccc; /* Adjust as needed */
+        border-radius: 20px; /* Smooth rounded edges */
+        padding: 8px 12px;
+        width: 90%;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 10px; /* Adjust placement */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+
+
 
     .shop-image img {
         width: 70px;
@@ -211,6 +233,7 @@ ul li:hover ul.dropdown {
         font-size: 14px;
     }
 }
+
 
 
 
