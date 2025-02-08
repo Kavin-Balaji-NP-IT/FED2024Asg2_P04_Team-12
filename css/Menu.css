@@ -75,18 +75,18 @@ ul li:hover ul.dropdown {
     height: auto;
 }
 
-/* 🎯 Rounded Search Bar */
+/* 🎯 Rounded Search Bar - Adjusted */
 .search-container {
     display: flex;
-    justify-content: left;
-    align-items: relative;
-    position: absolute;
-    width: 400px;
-    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0; /* Adjusted margin */
 }
 
 .search-container input {
-    width: 100%;
+    width: 80%; /* Adjust width to fit screen */
+    max-width: 400px;
     padding: 10px 35px;
     border: 2px solid blue;
     border-radius: 30px;
@@ -103,6 +103,20 @@ ul li:hover ul.dropdown {
     width: 18px;
     height: 18px;
 }
+
+/* Ensure proper stacking */
+.shop-image {
+    margin: 20px auto 10px;
+    text-align: center;
+}
+
+/* Center content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 /* 🎯 Product Grid */
 .product-container {
@@ -197,4 +211,6 @@ ul li:hover ul.dropdown {
         font-size: 14px;
     }
 }
+
+
 
