@@ -75,13 +75,14 @@ ul li:hover ul.dropdown {
     height: auto;
 }
 
-/* 🎯 Rounded Search Bar */
+/* 🎯 Rounded Search Bar - Adjusted */
 .search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 10px 0;
+    position: relative; /* Ensures search icon positions correctly */
 }
 
 .search-container input {
@@ -92,12 +93,13 @@ ul li:hover ul.dropdown {
     border-radius: 30px;
     font-size: 14px;
     outline: none;
-    padding-left: 35px;
+    padding-left: 40px; /* Make room for the icon */
 }
 
+/* 🎯 Adjust Search Icon Position */
 .search-container .search-icon {
     position: absolute;
-    left: 10px;
+    left: 12px; /* Position inside the input box */
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
@@ -202,7 +204,4 @@ ul li:hover ul.dropdown {
         width: 50px;
     }
 }
-
-
-
 
