@@ -5,7 +5,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background: linear-gradient(#007991, #78ffd6);
     padding-top: 20px;
 }
 .product-container {
@@ -120,7 +120,7 @@ body {
     min-height: 80px;
 }
 .button.submit-review {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -129,5 +129,5 @@ body {
     transition: background-color 0.3s ease;
 }
 .button.submit-review:hover {
-    background-color: #45a049;
+    background-color: grey;
 }

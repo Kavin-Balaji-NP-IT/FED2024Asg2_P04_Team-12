@@ -53,14 +53,14 @@
         </div>
         <div class="product-card" id="product2">
             <img src="Images/item2.jpg" alt="Product 2">
-            <h3>Asus Gaming Laptop</h3>
-            <h4>(Description)</h4>
+            <h3>ASUS ROG Strix G16 (2024) Gaming Laptop</h3>
+            <h4>This laptop has powerful hardware, stunning displays ...</h4>
             <p>$1793.99</p>
         </div>
         <div class="product-card" id="product3">
             <img src="https://zerge.hu/storage/_cache/garmin-fenix-7-sapphire-solar-carbon-010-02540-21-masolat_0cd83f8a91a7a4dd70a720d9a53a8616.png" alt="Product 3">
             <h3>Garmin Fenix 7 Sapphire Solar Carbon SmartWatch</h3>
-            <h4>This stylish smartwatch features a sleek ...</h4>
+            <h4>This stylish smartwatch features a sleek, advanced health ...</h4>
             <p>$299.99</p>
         </div>
         <div class="product-card" id="product4">
@@ -94,9 +94,16 @@
         document.getElementById('Settings').addEventListener('click', function() {
             window.location.href = 'Settings.html';  // Redirect to Settings page
         });
+        document.getElementById('product1').addEventListener('click', function() {
+            window.location.href = 'Productpage1.html';  // Redirect to Settings page
+        });
+
+        document.getElementById('product2').addEventListener('click', function() {
+            window.location.href = 'Productpage2.html';  // Redirect to Settings page
+        });
 
         document.getElementById('product3').addEventListener('click', function() {
-            window.location.href = 'Productpage.html';  // Redirect to Settings page
+            window.location.href = 'Productpage3.html';  // Redirect to Settings page
         });
 
         // Function to filter products based on search input

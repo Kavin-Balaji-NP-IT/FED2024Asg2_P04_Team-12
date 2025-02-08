@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <link href="css/Productpage.css" rel="stylesheet">
+</head>
+<body>
+    <div class="product-container">
+        <button class="button menu-option" id="menu">Go Back to Menu</button>
+        <div class="product-image">
+            <img src="Images/Item1.png" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1>Spinning Top</h1>
+            <p class="price">$18.99</p>
+            <p class="description">These brand of high-performance spinning top toys are loved by all be it young or old.</p>
+            <div class="button-container">
+                <button class="button add-to-cart">Add to Cart</button>
+                <button class="button message-seller">Message Seller</button>
+                <button class="button" id="rate-product">Rate Product</button>
+                <div class="product-logo">
+                    <img src="Images/Logo.png" alt="Product Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="rating-modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h3>Rate and Review the Product</h3>
+            <div class="rating-stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+            <textarea id="review-text" placeholder="Write your review here..."></textarea>
+            <button class="button submit-review" id="submit-review">Submit Review</button>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById('rating-modal');
+        const rateButton = document.getElementById('rate-product');
+        const closeModal = document.getElementById('close-modal');
+        const submitReview = document.getElementById('submit-review');
+
+        rateButton.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        submitReview.onclick = function() {
+            const selectedRating = document.querySelector('input[name="rating"]:checked');
+            const reviewText = document.getElementById('review-text').value;
+            if (selectedRating && reviewText.trim() !== "") {
+                alert(`You rated the product ${selectedRating.value} out of 5 stars! \nReview: ${reviewText}`);
+                modal.style.display = "none";
+            } else {
+                alert("Please select a rating and write a review.");
+            }
+        }
+
+        document.getElementById('menu').addEventListener('click', function() {
+            window.location.href = 'Menu.html';
+        });
+    </script>
+</body>
+</html>
+
