@@ -9,82 +9,79 @@
 </head>
 <body>
 
-    <button class="exit-btn" id="Exit">Exit</button>
+  <button class="exit-btn" id="Exit">Exit</button>
 
-    <!-- Logo Image above MockSell Team heading -->
-    <img class="logo-img" src="Images/logo.png" alt="Logo"> <!-- Replace with actual logo image URL -->
+  <!-- Logo Image above MockSell Team heading -->
+  <img class="logo-img" src="Images/logo.png" alt="Logo"> <!-- Replace with actual logo image URL -->
 
-    <div class="logo">Meet the IT behind MockSell!</div>
-    <ul class="accordion">
-      <li>
-        <img src="Images/Pranesh GOATED PFP🗣️.jpeg" />
-        <div class="content">
-          <span>
-            <h2>Pranesh Murugan</h2>
-            <p>Frontend</p>
-          </span>
-        </div>
+  <div class="logo">Meet the IT behind MockSell!</div>
+  <ul class="accordion">
+      <li onmouseover="startTyping(this)" onmouseout="stopTyping(this)">
+          <img src="Images/Pranesh GOATED PFP🗣️.jpeg" />
+          <div class="content">
+              <span>
+                  <h2>Pranesh Murugan</h2>
+                  <p class="typing"></p>
+              </span>
+          </div>
       </li>
-      <li>
-        <img src="Images/Kavin GOATED PFP🗣️.jpeg" />
-        <div class="content">
-          <span>
-            <h2>Kavin Balaji</h2>
-            <p>Frontend</p>
-          </span>
-        </div>
+      <li onmouseover="startTyping(this)" onmouseout="stopTyping(this)">
+          <img src="Images/Kavin GOATED PFP🗣️.jpeg" />
+          <div class="content">
+              <span>
+                  <h2>Kavin Balaji</h2>
+                  <p class="typing"></p>
+              </span>
+          </div>
       </li>
-      <li>
-        <img src="Images/Gerick GOATED 🗣️.jpeg" />
-        <div class="content">
-          <span>
-            <h2>Gerick Weizhao</h2>
-            <p>Frontend</p>
-          </span>
-        </div>
+      <li onmouseover="startTyping(this)" onmouseout="stopTyping(this)">
+          <img src="Images/Gerick GOATED 🗣️.jpeg" />
+          <div class="content">
+              <span>
+                  <h2>Gerick Weizhao</h2>
+                  <p class="typing"></p>
+              </span>
+          </div>
       </li>
-        </div>
-      </li>
-    </ul>
+  </ul>
 
-    <!-- Decorative Shapes -->
-    <div class="shapes">
-        <div class="shape one"></div>
-        <div class="shape two"></div>
-    </div>
+  <!-- Decorative Shapes -->
+  <div class="shapes">
+      <div class="shape one"></div>
+      <div class="shape two"></div>
+  </div>
 
-    <script>
-        function startTyping(element) {
-            let text = "Frontend";
-            let typingElement = element.querySelector(".typing");
-            typingElement.innerHTML = "";
-            let i = 0;
+  <script>
+      function startTyping(element) {
+          let text = "Frontend";
+          let typingElement = element.querySelector(".typing");
+          typingElement.innerHTML = "";
+          let i = 0;
 
-            let typingInterval = setInterval(() => {
-                if (i < text.length) {
-                    typingElement.innerHTML += text[i];
-                    i++;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 100);
+          let typingInterval = setInterval(() => {
+              if (i < text.length) {
+                  typingElement.innerHTML += text[i];
+                  i++;
+              } else {
+                  clearInterval(typingInterval);
+              }
+          }, 100);
 
-            element.dataset.typingInterval = typingInterval;
-        }
+          element.dataset.typingInterval = typingInterval;
+      }
 
-        function stopTyping(element) {
-            clearInterval(element.dataset.typingInterval);
-            element.querySelector(".typing").innerHTML = "";
-        }
-    </script>
-    <script>
-        document.getElementById('Exit').addEventListener('click', function() {
-            window.location.href = 'Menu.html';  // Redirect to Login page
-        });
-    </script>
+      function stopTyping(element) {
+          clearInterval(element.dataset.typingInterval);
+          element.querySelector(".typing").innerHTML = "";
+      }
+  </script>
+  <script>
+      document.getElementById('Exit').addEventListener('click', function() {
+          window.location.href = 'Menu.html';  // Redirect to Login page
+      });
+  </script>
 
 </body>
-</html>
+</html> 
 
- 
 
