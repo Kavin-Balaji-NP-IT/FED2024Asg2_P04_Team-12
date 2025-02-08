@@ -121,7 +121,7 @@ ul li:hover ul.dropdown {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background: white;
+    background: linear-gradient(bisque, burlywood);
     transition: transform 0.3s ease-in-out;
 }
 
