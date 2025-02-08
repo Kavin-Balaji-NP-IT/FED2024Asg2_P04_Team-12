@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toys Page</title>
+    <link rel="stylesheet" href="css/Toys.css">
+</head>
+
+
+
+
+<!-- 🎯 Search Bar -->
+<div class="search-container">
+    <img src="Images/pngtree-vector-search-icon-png-image_320926-removebg-preview.png" alt="Search" class="search-icon">
+    <input type="text" id="search-bar" placeholder="Search for items..." oninput="filterProducts()">
+</div>
+
+<!-- 🎯 Shop Logo -->
+<div class="shop-image">
+    <img src="Images/Logo.png" alt="Shop">
+</div>
+
+<!-- 🎯 Product Section -->
+<div class="product-container">
+    <div class="product-card" id="product1">
+        <img src="Images/trendy-blue-shirt.jpg" alt="Product 1">
+        <h3>Spinning Top</h3>
+        <h4>These brand of high-performance spinning top toys ...</h4>
+        <p>$18.99</p>
+    </div>
+    <div class="product-card" id="product2">
+        <img src="Images/Black-T-Shirt.jpg" alt="Product 2">
+        <h3>Asus Gaming Laptop</h3>
+        <h4>(Description)</h4>
+        <p>$1793.99</p>
+    </div>
+    <div class="product-card" id="product3">
+        <img src="Images/Pants.jpg" alt="Product 3">
+        <h3>Garmin Fenix 7 Sapphire Solar Carbon SmartWatch</h3>
+        <h4>This stylish smartwatch features a sleek ...</h4>
+        <p>$299.99</p>
+    </div>
+    <div class="product-card" id="product4">
+        <img src="Images/Adidas-shirt-removebg-preview.png" alt="Product 4">
+        <h3>Airpods</h3>
+        <h4>Official Airpods from Apple!</h4>
+        <p>$299.99</p>
+    </div>
+    <div class="product-card" id="product5">
+        <img src="Images/Black-T-Shirt-removebg-preview.png" alt="Product 5">
+        <h3>Printed Half Shirt</h3>
+        <h4>The perfect summer outfit!</h4>
+        <p>$60.00</p>
+    </div>
+</div>
+
+<script>
+    // Redirecting to different pages
+    document.getElementById('home').addEventListener('click', function() {
+        window.location.href = 'index.html';  // Redirect to Homepage
+    });
+
+    document.getElementById('sell').addEventListener('click', function() {
+        window.location.href = 'sellpage.html';  // Redirect to Sell page
+    });
+
+    document.getElementById('About').addEventListener('click', function() {
+        window.location.href = '3dwhopage.html';  // Redirect to About page
+    });
+
+    document.getElementById('Settings').addEventListener('click', function() {
+        window.location.href = 'Settings.html';  // Redirect to Settings page
+    });
+
+    document.getElementById('product3').addEventListener('click', function() {
+        window.location.href = 'Productpage.html';  // Redirect to Settings page
+    });
+
+    // Function to filter products based on search input
+    function filterProducts() {
+        const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+        const products = document.querySelectorAll('.product-card');
+
+        products.forEach(product => {
+            const productName = product.querySelector('h3').textContent.toLowerCase();
+            product.style.display = productName.includes(searchQuery) ? 'block' : 'none';
+        });
+    }
+</script>
+</body>
+</html>
